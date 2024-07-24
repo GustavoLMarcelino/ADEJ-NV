@@ -5,11 +5,10 @@
     <title>Cadastro - ADEJ</title>
     <link rel="stylesheet" href="./CSS/Cadastro.css">
     <script>
-        // JavaScript para mostrar/esconder a caixa de texto "Cadastro Único"
         document.addEventListener('DOMContentLoaded', function() {
             const cadastroUnicoCheckbox = document.getElementById('cadastro-unico');
             const cadastroUnicoText = document.getElementById('cadastro-unico-text');
-
+    
             cadastroUnicoCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     cadastroUnicoText.style.display = 'block';
@@ -17,11 +16,10 @@
                     cadastroUnicoText.style.display = 'none';
                 }
             });
-
-            // Inicialmente esconder a caixa de texto
+    
             cadastroUnicoText.style.display = 'none';
         });
-    </script>
+    </script>    
 </head>
 <body>
     <header>

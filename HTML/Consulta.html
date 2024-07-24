@@ -15,36 +15,37 @@
         });
 
         async function fetchAndDisplayBeneficiados() {
-            const form = document.querySelector('.search-form');
-            const formData = new FormData(form);
-            const queryString = new URLSearchParams(formData).toString();
-            const response = await fetch(`/api/beneficiados?${queryString}`);
-            const results = await response.json();
-            const resultBody = document.getElementById('result-body');
-            resultBody.innerHTML = '';
+    const form = document.querySelector('.search-form');
+    const formData = new FormData(form);
+    const queryString = new URLSearchParams(formData).toString();
+    const response = await fetch(`/api/beneficiados?${queryString}`);
+    const results = await response.json();
+    const resultBody = document.getElementById('result-body');
+    resultBody.innerHTML = '';
 
-            results.forEach(result => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><input type="checkbox"></td>
-                    <td>${result.nome}</td>
-                    <td>${result.id}</td>
-                    <td>${result.cpf}</td>
-                    <td>${result.sexo}</td>
-                    <td>${result.condicao}</td>
-                    <td>${result.medicacao}</td>
-                    <td>${result.telefone}</td>
-                    <td>${result.email}</td>
-                    <td>${result.rendaFamiliar}</td>
-                    <td>${result.dataNascimento}</td>
-                    <td>${result.dataInscricao}</td>
-                    <td><a href="/edit/${result.id}">Editar</a></td>
-                `;
-                resultBody.appendChild(row);
-            });
+    results.forEach(result => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><input type="checkbox"></td>
+            <td>${result.nome}</td>
+            <td>${result.id}</td>
+            <td>${result.cpf}</td>
+            <td>${result.sexo}</td>
+            <td>${result.condicao}</td>
+            <td>${result.medicacao}</td>
+            <td>${result.telefone}</td>
+            <td>${result.email}</td>
+            <td>${result.rendaFamiliar}</td>
+            <td>${result.dataNascimento}</td>
+            <td>${result.dataInscricao}</td>
+            <td><a href="/edit/${result.id}">Editar</a></td>
+        `;
+        resultBody.appendChild(row);
+    });
 
-            document.getElementById('results-count').innerText = `${results.length} Ficha(s) Selecionadas`;
-        }
+    document.getElementById('results-count').innerText = `${results.length} Ficha(s) Selecionadas`;
+}
+
     </script>
 </head>
 <body>

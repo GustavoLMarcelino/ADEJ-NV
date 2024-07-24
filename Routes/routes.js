@@ -22,11 +22,12 @@ router.use(session({
 
 // Redirecionar a rota inicial para /home diretamente
 router.get('/', (req, res) => {
-  if (!req.session.userId) {
+  if (!req.session.volunteerId) {
     return res.redirect('/login');
   }
-  res.sendFile(path.join(__dirname, '/HTML/Home.html'));
+  res.sendFile(path.join(__dirname, '..', 'HTML', 'Home.html'));
 });
+
 
 // Rotas de páginas
 router.get('/cadastro', authMiddleware, (req, res) => {
@@ -38,7 +39,7 @@ router.get('/consulta', authMiddleware, (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../HTML/index.html'));
+  res.sendFile(path.join(__dirname, 'Login.html'));
 });
 
 router.get('/register', (req, res) => {
