@@ -38,7 +38,7 @@ router.get('/consulta', authMiddleware, (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, '../HTML/index.html'));
 });
 
 router.get('/register', (req, res) => {
